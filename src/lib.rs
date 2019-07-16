@@ -459,7 +459,7 @@ mod tests {
 
     #[test]
     fn it_uses_the_high_level_api() {
-        let s = "abcdef";
+        let s = "abcdef-0123456789";
         let stl = to_stl(s);
         write_stl("hello.stl", &stl).unwrap();
         assert_eq!(2 + 2, 4);
