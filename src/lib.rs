@@ -12,9 +12,7 @@ pub struct Triangle {
 
 fn normal(face: &Face) -> Vector3<f32> {
     let [p1, p2, p3] = face;
-    let n = (p2 - p1).cross(&(p3 - p1));
-    println!("{}", n);
-    n
+    (p2 - p1).cross(&(p3 - p1))
 }
 
 /// assumes:
@@ -90,6 +88,36 @@ macro_rules! letter {
             cubes
         }
     };
+}
+
+pub fn to_stl(s: &str) -> Vec<Triangle> {
+    let mut output = vec![];
+    for (i, c) in s.chars().enumerate() {
+        let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
+
+        if c != ' ' {
+            let stl_letter = char_to_stl_letter(&c);
+
+            for triangle in stl_letter {
+                let t = Triangle {
+                    normal: triangle.normal,
+                    vertices: [
+                        triangle.vertices[0] + translation,
+                        triangle.vertices[1] + translation,
+                        triangle.vertices[2] + translation,
+                    ],
+                };
+
+                output.push(t);
+            }
+        }
+    }
+
+    output
+}
+
+fn char_to_stl_letter(c: &char) -> Vec<Triangle> {
+    LETTERS[&c.to_lowercase().to_string().chars().next().unwrap()].clone()
 }
 
 letter! {
@@ -326,52 +354,52 @@ letter! {
 }
 
 lazy_static! {
-    pub static ref LETTERS: HashMap<String, Vec<Triangle>> = {
+    pub static ref LETTERS: HashMap<char, Vec<Triangle>> = {
         let mut m = HashMap::new();
 
         // numbers
-        m.insert("0".to_string(), zero());
-        m.insert("1".to_string(), one());
-        m.insert("2".to_string(), two());
-        m.insert("3".to_string(), three());
-        m.insert("4".to_string(), four());
-        m.insert("5".to_string(), five());
-        m.insert("6".to_string(), six());
-        m.insert("7".to_string(), seven());
-        m.insert("8".to_string(), eight());
-        m.insert("9".to_string(), nine());
+        m.insert('0', zero());
+        m.insert('1', one());
+        m.insert('2', two());
+        m.insert('3', three());
+        m.insert('4', four());
+        m.insert('5', five());
+        m.insert('6', six());
+        m.insert('7', seven());
+        m.insert('8', eight());
+        m.insert('9', nine());
 
         // letters
-        m.insert("a".to_string(), a());
-        m.insert("b".to_string(), b());
-        m.insert("c".to_string(), c());
-        m.insert("d".to_string(), d());
-        m.insert("e".to_string(), e());
-        m.insert("f".to_string(), f());
+        m.insert('a', a());
+        m.insert('b', b());
+        m.insert('c', c());
+        m.insert('d', d());
+        m.insert('e', e());
+        m.insert('f', f());
 
-        // m.insert("g".to_string(), g());
-        // m.insert("h".to_string(), h());
-        m.insert("i".to_string(), i());
-        // m.insert("j".to_string(), j());
-        m.insert("k".to_string(), k());
-        // m.insert("l".to_string(), l());
-        // m.insert("m".to_string(), m());
-        // m.insert("n".to_string(), n());
-        // m.insert("o".to_string(), o());
-        m.insert("p".to_string(), p());
-        // m.insert("q".to_string(), q());
-        // m.insert("r".to_string(), r());
-        // m.insert("s".to_string(), s());
-        // m.insert("t".to_string(), t());
-        // m.insert("u".to_string(), u());
-        m.insert("v".to_string(), v());
-        // m.insert("w".to_string(), w());
-        // m.insert("x".to_string(), x());
-        // m.insert("y".to_string(), y());
-        // m.insert("z".to_string(), z());
+        // m.insert('g', g());
+        // m.insert('h', h());
+        m.insert('i', i());
+        // m.insert('j', j());
+        m.insert('k', k());
+        // m.insert('l', l());
+        // m.insert('m', m());
+        // m.insert('n', n());
+        // m.insert('o', o());
+        m.insert('p', p());
+        // m.insert('q', q());
+        // m.insert('r', r());
+        // m.insert('s', s());
+        // m.insert('t', t());
+        // m.insert('u', u());
+        m.insert('v', v());
+        // m.insert('w', w());
+        // m.insert('x', x());
+        // m.insert('y', y());
+        // m.insert('z', z());
 
         // symbols
-        m.insert("-".to_string(), hyphen());
+        m.insert('-', hyphen());
 
         m
     };
@@ -430,6 +458,14 @@ mod tests {
     }
 
     #[test]
+    fn it_uses_the_high_level_api() {
+        let s = "abcdef";
+        let stl = to_stl(s);
+        write_stl("hello.stl", &stl).unwrap();
+        assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
     fn it_does_a_cube() {
         let cube = cube();
         write_stl("cube.stl", &cube).unwrap();
@@ -457,61 +493,6 @@ mod tests {
             }
         }
         write_stl("letters.stl", &letters).unwrap();
-        assert_eq!(2 + 2, 4);
-    }
-
-    #[test]
-    fn it_does_pick() {
-        let david = vec![d(), a(), v(), i(), d()];
-        let pick = vec![p(), i(), c(), k()];
-
-        let mut name = vec![];
-
-        for (i, letter) in david.iter().enumerate() {
-            let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
-
-            for triangle in letter {
-                let t = Triangle {
-                    normal: triangle.normal,
-                    vertices: [
-                        triangle.vertices[0] + translation,
-                        triangle.vertices[1] + translation,
-                        triangle.vertices[2] + translation,
-                    ],
-                };
-
-                name.push(t);
-            }
-        }
-
-        for (i, letter) in pick.iter().enumerate() {
-            let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0) + Vector3::new(35.0, 0.0, 0.0);
-
-            for triangle in letter {
-                let t = Triangle {
-                    normal: triangle.normal,
-                    vertices: [
-                        triangle.vertices[0] + translation,
-                        triangle.vertices[1] + translation,
-                        triangle.vertices[2] + translation,
-                    ],
-                };
-
-                name.push(t);
-            }
-        }
-        // let mut stl: Vec<Triangle> = vec![];
-        // let translation = Vector3::new(0.0, 0.0, 0.0);
-
-        // for c in "david pick".chars() {
-        //     if c != ' ' {
-        //         let stl_letter = &LETTERS[&c.to_string()];
-        //         stl.extend(stl_letter);
-        //     } else {
-        //     }
-        // }
-
-        write_stl("davidpick.stl", &name).unwrap();
         assert_eq!(2 + 2, 4);
     }
 
