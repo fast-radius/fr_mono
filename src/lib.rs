@@ -10,6 +10,36 @@ pub struct Triangle {
     pub vertices: Face,
 }
 
+pub fn to_stl(s: &str) -> Vec<Triangle> {
+    let mut output = vec![];
+    for (i, c) in s.to_lowercase().chars().enumerate() {
+        let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
+
+        if c != ' ' {
+            let stl_letter = char_to_stl_letter(&c);
+
+            for triangle in stl_letter {
+                let t = Triangle {
+                    normal: triangle.normal,
+                    vertices: [
+                        triangle.vertices[0] + translation,
+                        triangle.vertices[1] + translation,
+                        triangle.vertices[2] + translation,
+                    ],
+                };
+
+                output.push(t);
+            }
+        }
+    }
+
+    output
+}
+
+fn char_to_stl_letter(c: &char) -> Vec<Triangle> {
+    LETTERS[&c].clone()
+}
+
 fn normal(face: &Face) -> Vector3<f32> {
     let [p1, p2, p3] = face;
     (p2 - p1).cross(&(p3 - p1))
@@ -90,34 +120,55 @@ macro_rules! letter {
     };
 }
 
-pub fn to_stl(s: &str) -> Vec<Triangle> {
-    let mut output = vec![];
-    for (i, c) in s.to_lowercase().chars().enumerate() {
-        let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
+lazy_static! {
+    static ref LETTERS: HashMap<char, Vec<Triangle>> = {
+        let mut characters = HashMap::new();
 
-        if c != ' ' {
-            let stl_letter = char_to_stl_letter(&c);
+        // numbers
+        characters.insert('0', zero());
+        characters.insert('1', one());
+        characters.insert('2', two());
+        characters.insert('3', three());
+        characters.insert('4', four());
+        characters.insert('5', five());
+        characters.insert('6', six());
+        characters.insert('7', seven());
+        characters.insert('8', eight());
+        characters.insert('9', nine());
 
-            for triangle in stl_letter {
-                let t = Triangle {
-                    normal: triangle.normal,
-                    vertices: [
-                        triangle.vertices[0] + translation,
-                        triangle.vertices[1] + translation,
-                        triangle.vertices[2] + translation,
-                    ],
-                };
+        // letters
+        characters.insert('a', a());
+        characters.insert('b', b());
+        characters.insert('c', c());
+        characters.insert('d', d());
+        characters.insert('e', e());
+        characters.insert('f', f());
+        characters.insert('g', g());
+        characters.insert('h', h());
+        characters.insert('i', i());
+        characters.insert('j', j());
+        characters.insert('k', k());
+        characters.insert('l', l());
+        characters.insert('m', m());
+        characters.insert('n', n());
+        characters.insert('o', o());
+        characters.insert('p', p());
+        characters.insert('q', q());
+        characters.insert('r', r());
+        characters.insert('s', s());
+        characters.insert('t', t());
+        characters.insert('u', u());
+        characters.insert('v', v());
+        characters.insert('w', w());
+        characters.insert('x', x());
+        characters.insert('y', y());
+        characters.insert('z', z());
 
-                output.push(t);
-            }
-        }
-    }
+        // symbols
+        characters.insert('-', hyphen());
 
-    output
-}
-
-fn char_to_stl_letter(c: &char) -> Vec<Triangle> {
-    LETTERS[&c].clone()
+        characters
+    };
 }
 
 letter! {
@@ -525,57 +576,6 @@ letter! {
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0]
     ]
-}
-
-lazy_static! {
-    static ref LETTERS: HashMap<char, Vec<Triangle>> = {
-        let mut characters = HashMap::new();
-
-        // numbers
-        characters.insert('0', zero());
-        characters.insert('1', one());
-        characters.insert('2', two());
-        characters.insert('3', three());
-        characters.insert('4', four());
-        characters.insert('5', five());
-        characters.insert('6', six());
-        characters.insert('7', seven());
-        characters.insert('8', eight());
-        characters.insert('9', nine());
-
-        // letters
-        characters.insert('a', a());
-        characters.insert('b', b());
-        characters.insert('c', c());
-        characters.insert('d', d());
-        characters.insert('e', e());
-        characters.insert('f', f());
-        characters.insert('g', g());
-        characters.insert('h', h());
-        characters.insert('i', i());
-        characters.insert('j', j());
-        characters.insert('k', k());
-        characters.insert('l', l());
-        characters.insert('m', m());
-        characters.insert('n', n());
-        characters.insert('o', o());
-        characters.insert('p', p());
-        characters.insert('q', q());
-        characters.insert('r', r());
-        characters.insert('s', s());
-        characters.insert('t', t());
-        characters.insert('u', u());
-        characters.insert('v', v());
-        characters.insert('w', w());
-        characters.insert('x', x());
-        characters.insert('y', y());
-        characters.insert('z', z());
-
-        // symbols
-        characters.insert('-', hyphen());
-
-        characters
-    };
 }
 
 #[cfg(test)]
