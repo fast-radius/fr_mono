@@ -12,7 +12,7 @@ pub struct Triangle {
 
 pub fn to_stl(s: &str) -> Vec<Triangle> {
     let mut output = vec![];
-    for (i, c) in s.to_lowercase().chars().enumerate() {
+    for (i, c) in s.to_uppercase().chars().enumerate() {
         let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
 
         if c != ' ' {
@@ -137,32 +137,32 @@ lazy_static! {
         characters.insert('9', nine());
 
         // letters
-        characters.insert('a', a());
-        characters.insert('b', b());
-        characters.insert('c', c());
-        characters.insert('d', d());
-        characters.insert('e', e());
-        characters.insert('f', f());
-        characters.insert('g', g());
-        characters.insert('h', h());
-        characters.insert('i', i());
-        characters.insert('j', j());
-        characters.insert('k', k());
-        characters.insert('l', l());
-        characters.insert('m', m());
-        characters.insert('n', n());
-        characters.insert('o', o());
-        characters.insert('p', p());
-        characters.insert('q', q());
-        characters.insert('r', r());
-        characters.insert('s', s());
-        characters.insert('t', t());
-        characters.insert('u', u());
-        characters.insert('v', v());
-        characters.insert('w', w());
-        characters.insert('x', x());
-        characters.insert('y', y());
-        characters.insert('z', z());
+        characters.insert('A', a_upper());
+        characters.insert('B', b_upper());
+        characters.insert('C', c_upper());
+        characters.insert('D', d_upper());
+        characters.insert('E', e_upper());
+        characters.insert('F', f_upper());
+        characters.insert('G', g_upper());
+        characters.insert('H', h_upper());
+        characters.insert('I', i_upper());
+        characters.insert('J', j_upper());
+        characters.insert('K', k_upper());
+        characters.insert('L', l_upper());
+        characters.insert('M', m_upper());
+        characters.insert('N', n_upper());
+        characters.insert('O', o_upper());
+        characters.insert('P', p_upper());
+        characters.insert('Q', q_upper());
+        characters.insert('R', r_upper());
+        characters.insert('S', s_upper());
+        characters.insert('T', t_upper());
+        characters.insert('U', u_upper());
+        characters.insert('V', v_upper());
+        characters.insert('W', w_upper());
+        characters.insert('X', x_upper());
+        characters.insert('Y', y_upper());
+        characters.insert('Z', z_upper());
 
         // symbols
         characters.insert('-', hyphen());
@@ -282,7 +282,7 @@ letter! {
 }
 
 letter! {
-    a,
+    a_upper,
     [
         [0, 1, 1, 0, 0],
         [1, 0, 0, 1, 0],
@@ -293,7 +293,7 @@ letter! {
 }
 
 letter! {
-    b,
+    b_upper,
     [
         [1, 1, 1, 0, 0],
         [1, 0, 0, 1, 0],
@@ -304,7 +304,7 @@ letter! {
 }
 
 letter! {
-    c,
+    c_upper,
     [
         [0, 1, 1, 1, 0],
         [1, 0, 0, 0, 0],
@@ -315,7 +315,7 @@ letter! {
 }
 
 letter! {
-    d,
+    d_upper,
     [
         [1, 1, 1, 1, 0],
         [1, 0, 0, 0, 1],
@@ -326,7 +326,7 @@ letter! {
 }
 
 letter! {
-    e,
+    e_upper,
     [
         [1, 1, 1, 1, 0],
         [1, 0, 0, 0, 0],
@@ -337,7 +337,7 @@ letter! {
 }
 
 letter! {
-    f,
+    f_upper,
     [
         [1, 1, 1, 1, 0],
         [1, 0, 0, 0, 0],
@@ -348,7 +348,7 @@ letter! {
 }
 
 letter! {
-    g,
+    g_upper,
     [
         [1, 1, 1, 1, 0],
         [1, 0, 0, 0, 0],
@@ -359,7 +359,7 @@ letter! {
 }
 
 letter! {
-    h,
+    h_upper,
     [
         [1, 0, 0, 1, 0],
         [1, 0, 0, 1, 0],
@@ -370,7 +370,7 @@ letter! {
 }
 
 letter! {
-    i,
+    i_upper,
     [
         [1, 1, 1, 1, 1],
         [0, 0, 1, 0, 0],
@@ -381,7 +381,7 @@ letter! {
 }
 
 letter! {
-    j,
+    j_upper,
     [
         [1, 1, 1, 1, 1],
         [0, 0, 1, 0, 0],
@@ -392,7 +392,7 @@ letter! {
 }
 
 letter! {
-    k,
+    k_upper,
     [
         [1, 0, 0, 1, 0],
         [1, 0, 1, 0, 0],
@@ -403,7 +403,7 @@ letter! {
 }
 
 letter! {
-    l,
+    l_upper,
     [
         [1, 0, 0, 0, 0],
         [1, 0, 0, 0, 0],
@@ -414,7 +414,7 @@ letter! {
 }
 
 letter! {
-    m,
+    m_upper,
     [
         [1, 0, 0, 0, 1],
         [1, 1, 0, 1, 1],
@@ -425,7 +425,7 @@ letter! {
 }
 
 letter! {
-    n,
+    n_upper,
     [
         [1, 0, 0, 0, 1],
         [1, 1, 0, 0, 1],
@@ -436,7 +436,7 @@ letter! {
 }
 
 letter! {
-    o,
+    o_upper,
     [
         [0, 1, 1, 1, 0],
         [1, 0, 0, 0, 1],
@@ -447,7 +447,7 @@ letter! {
 }
 
 letter! {
-    p,
+    p_upper,
     [
         [1, 1, 1, 1, 0],
         [1, 0, 0, 1, 0],
@@ -458,7 +458,7 @@ letter! {
 }
 
 letter! {
-    q,
+    q_upper,
     [
         [0, 1, 1, 1, 0],
         [1, 0, 0, 0, 1],
@@ -469,7 +469,7 @@ letter! {
 }
 
 letter! {
-    r,
+    r_upper,
     [
         [1, 1, 1, 1, 0],
         [1, 0, 0, 1, 0],
@@ -480,7 +480,7 @@ letter! {
 }
 
 letter! {
-    s,
+    s_upper,
     [
         [1, 1, 1, 1, 1],
         [1, 0, 0, 0, 0],
@@ -491,7 +491,7 @@ letter! {
 }
 
 letter! {
-    t,
+    t_upper,
     [
         [1, 1, 1, 1, 1],
         [0, 0, 1, 0, 0],
@@ -502,7 +502,7 @@ letter! {
 }
 
 letter! {
-    u,
+    u_upper,
     [
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
@@ -513,7 +513,7 @@ letter! {
 }
 
 letter! {
-    v,
+    v_upper,
     [
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
@@ -524,7 +524,7 @@ letter! {
 }
 
 letter! {
-    w,
+    w_upper,
     [
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
@@ -535,7 +535,7 @@ letter! {
 }
 
 letter! {
-    x,
+    x_upper,
     [
         [1, 0, 0, 0, 1],
         [0, 1, 0, 1, 0],
@@ -546,7 +546,7 @@ letter! {
 }
 
 letter! {
-    y,
+    y_upper,
     [
         [1, 0, 0, 0, 1],
         [0, 1, 0, 1, 0],
@@ -557,7 +557,7 @@ letter! {
 }
 
 letter! {
-    z,
+    z_upper,
     [
         [1, 1, 1, 1, 1],
         [0, 0, 0, 1, 0],
@@ -647,7 +647,14 @@ mod tests {
 
     #[test]
     fn it_does_letters() {
-        let input = [a(), b(), c(), d(), e(), f()];
+        let input = [
+            a_upper(),
+            b_upper(),
+            c_upper(),
+            d_upper(),
+            e_upper(),
+            f_upper(),
+        ];
         let mut letters = vec![];
         for (i, letter) in input.iter().enumerate() {
             let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
