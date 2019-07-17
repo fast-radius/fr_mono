@@ -260,7 +260,6 @@ letter! {
         [1, 0, 0, 0, 0],
         [1, 0, 0, 0, 0],
         [0, 1, 1, 1, 0]
-
     ]
 }
 
@@ -298,6 +297,50 @@ letter! {
 }
 
 letter! {
+    g,
+    [
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 1, 1, 0],
+        [1, 0, 0, 1, 0],
+        [1, 1, 1, 1, 0],
+    ]
+}
+
+letter! {
+    h,
+    [
+        [1, 0, 0, 1, 0],
+        [1, 0, 0, 1, 0],
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 1, 0],
+        [1, 0, 0, 1, 0],
+    ]
+}
+
+letter! {
+    i,
+    [
+        [1, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [1, 1, 1, 1, 1],
+    ]
+}
+
+letter! {
+    j,
+    [
+        [1, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 0],
+        [1, 1, 1, 0, 0]
+    ]
+}
+
+letter! {
     k,
     [
         [1, 0, 0, 1, 0],
@@ -305,6 +348,116 @@ letter! {
         [1, 1, 0, 0, 0],
         [1, 0, 1, 0, 0],
         [1, 0, 0, 1, 0],
+    ]
+}
+
+letter! {
+    l,
+    [
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 1, 1, 1, 0],
+    ]
+}
+
+letter! {
+    m,
+    [
+        [1, 0, 0, 0, 1],
+        [1, 1, 0, 1, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 0, 0, 1],
+    ]
+}
+
+letter! {
+    n,
+    [
+        [1, 0, 0, 0, 1],
+        [1, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 0, 1, 1],
+        [1, 0, 0, 0, 1]
+    ]
+}
+
+letter! {
+    o,
+    [
+        [0, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 1, 1, 0]
+    ]
+}
+
+letter! {
+    p,
+    [
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 1, 0],
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0]
+    ]
+}
+
+letter! {
+    q,
+    [
+        [0, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 0, 1, 0],
+        [0, 1, 1, 0, 1]
+    ]
+}
+
+letter! {
+    r,
+    [
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 1, 0],
+        [1, 1, 1, 1, 0],
+        [1, 0, 1, 0, 0],
+        [1, 0, 0, 1, 0]
+    ]
+}
+
+letter! {
+    s,
+    [
+        [1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1]
+    ]
+}
+
+letter! {
+    t,
+    [
+        [1, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+    ]
+}
+
+letter! {
+    u,
+    [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1],
     ]
 }
 
@@ -320,25 +473,46 @@ letter! {
 }
 
 letter! {
-    i,
+    w,
     [
-        [1,1,1,1,1],
-        [0,0,1,0,0],
-        [0,0,1,0,0],
-        [0,0,1,0,0],
-        [1,1,1,1,1],
-
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 1]
     ]
 }
 
 letter! {
-    p,
+    x,
     [
-        [1,1,1,1,0],
-        [1,0,0,1,0],
-        [1,1,1,1,0],
-        [1,0,0,0,0],
-        [1,0,0,0,0]
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 1, 0, 1, 0],
+        [1, 0, 0, 0, 1],
+    ]
+}
+
+letter! {
+    y,
+    [
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+    ]
+}
+
+letter! {
+    z,
+    [
+        [1, 1, 1, 1, 1],
+        [0, 0, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 1, 0, 0, 0],
+        [1, 1, 1, 1, 1]
     ]
 }
 
@@ -355,53 +529,52 @@ letter! {
 
 lazy_static! {
     pub static ref LETTERS: HashMap<char, Vec<Triangle>> = {
-        let mut m = HashMap::new();
+        let mut characters = HashMap::new();
 
         // numbers
-        m.insert('0', zero());
-        m.insert('1', one());
-        m.insert('2', two());
-        m.insert('3', three());
-        m.insert('4', four());
-        m.insert('5', five());
-        m.insert('6', six());
-        m.insert('7', seven());
-        m.insert('8', eight());
-        m.insert('9', nine());
+        characters.insert('0', zero());
+        characters.insert('1', one());
+        characters.insert('2', two());
+        characters.insert('3', three());
+        characters.insert('4', four());
+        characters.insert('5', five());
+        characters.insert('6', six());
+        characters.insert('7', seven());
+        characters.insert('8', eight());
+        characters.insert('9', nine());
 
         // letters
-        m.insert('a', a());
-        m.insert('b', b());
-        m.insert('c', c());
-        m.insert('d', d());
-        m.insert('e', e());
-        m.insert('f', f());
-
-        // m.insert('g', g());
-        // m.insert('h', h());
-        m.insert('i', i());
-        // m.insert('j', j());
-        m.insert('k', k());
-        // m.insert('l', l());
-        // m.insert('m', m());
-        // m.insert('n', n());
-        // m.insert('o', o());
-        m.insert('p', p());
-        // m.insert('q', q());
-        // m.insert('r', r());
-        // m.insert('s', s());
-        // m.insert('t', t());
-        // m.insert('u', u());
-        m.insert('v', v());
-        // m.insert('w', w());
-        // m.insert('x', x());
-        // m.insert('y', y());
-        // m.insert('z', z());
+        characters.insert('a', a());
+        characters.insert('b', b());
+        characters.insert('c', c());
+        characters.insert('d', d());
+        characters.insert('e', e());
+        characters.insert('f', f());
+        characters.insert('g', g());
+        characters.insert('h', h());
+        characters.insert('i', i());
+        characters.insert('j', j());
+        characters.insert('k', k());
+        characters.insert('l', l());
+        characters.insert('m', m());
+        characters.insert('n', n());
+        characters.insert('o', o());
+        characters.insert('p', p());
+        characters.insert('q', q());
+        characters.insert('r', r());
+        characters.insert('s', s());
+        characters.insert('t', t());
+        characters.insert('u', u());
+        characters.insert('v', v());
+        characters.insert('w', w());
+        characters.insert('x', x());
+        characters.insert('y', y());
+        characters.insert('z', z());
 
         // symbols
-        m.insert('-', hyphen());
+        characters.insert('-', hyphen());
 
-        m
+        characters
     };
 }
 
@@ -459,7 +632,7 @@ mod tests {
 
     #[test]
     fn it_uses_the_high_level_api() {
-        let s = "abcdef-0123456789";
+        let s = "abcdefghijklmnopqrstuvwxyz-0123456789";
         let stl = to_stl(s);
         write_stl("hello.stl", &stl).unwrap();
         assert_eq!(2 + 2, 4);
