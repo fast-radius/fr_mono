@@ -92,7 +92,7 @@ macro_rules! letter {
 
 pub fn to_stl(s: &str) -> Vec<Triangle> {
     let mut output = vec![];
-    for (i, c) in s.chars().enumerate() {
+    for (i, c) in s.to_lowercase().chars().enumerate() {
         let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
 
         if c != ' ' {
@@ -117,7 +117,7 @@ pub fn to_stl(s: &str) -> Vec<Triangle> {
 }
 
 fn char_to_stl_letter(c: &char) -> Vec<Triangle> {
-    LETTERS[&c.to_lowercase().to_string().chars().next().unwrap()].clone()
+    LETTERS[&c].clone()
 }
 
 letter! {
@@ -528,7 +528,7 @@ letter! {
 }
 
 lazy_static! {
-    pub static ref LETTERS: HashMap<char, Vec<Triangle>> = {
+    static ref LETTERS: HashMap<char, Vec<Triangle>> = {
         let mut characters = HashMap::new();
 
         // numbers
