@@ -97,7 +97,7 @@ macro_rules! letter {
             for (y, row) in $def.iter().enumerate() {
                 for (x, column) in row.iter().enumerate() {
                     if *column == 1 {
-                        let translation = Vector3::new(x as f32, -1.0 * y as f32, 0.0);
+                        let translation = Vector3::new(x as f32, 0.0, -1.0 * y as f32);
 
                         for triangle in cube().iter() {
                             let t = Triangle {
