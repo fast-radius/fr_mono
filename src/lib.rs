@@ -13,7 +13,7 @@ pub struct Triangle {
 pub fn to_stl(s: &str) -> Vec<Triangle> {
     let mut output = vec![];
     for (i, c) in s.to_uppercase().chars().enumerate() {
-        let translation = Vector3::new(6.0 * i as f32, 0.0, 0.0);
+        let translation = Vector3::new(-6.0 * i as f32, 0.0, 0.0);
 
         if c != ' ' {
             let stl_letter = char_to_stl_letter(&c);
@@ -97,7 +97,7 @@ macro_rules! letter {
             for (y, row) in $def.iter().enumerate() {
                 for (x, column) in row.iter().enumerate() {
                     if *column == 1 {
-                        let translation = Vector3::new(x as f32, 0.0, -1.0 * y as f32);
+                        let translation = Vector3::new(-1.0 * x as f32, 0.0, -1.0 * y as f32);
 
                         for triangle in cube().iter() {
                             let t = Triangle {
