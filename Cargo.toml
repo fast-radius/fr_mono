@@ -8,7 +8,7 @@ edition = "2018"
 
 [dependencies]
 lazy_static = "1.4"
-nalgebra = "0.19"
+nalgebra = "0.23"
 
 [dev-dependencies]
 byteorder = "1.3"
